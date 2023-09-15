@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//not part of App component, but App needs to find this
+
+function getRandomAnimal () {
+    const animals=['bird', 'cat', 'cow', 'dog', 'gator', 'horse'];
+
+    return animals[Math.floor(Math.random()*animals.length)];
+}
+
+function App (){
+
+    const[animals, setAnimals] = useState([]);
+
+    const handleClick = () =>{
+        setAnimals([...animals, getRandomAnimal()]);
+    };
+
+    return (
+        <div>
+            <button onClick={handleClick}>Add animal</button>
+            <div>Animals: {animals}</div>
+        </div>
+       
+        );
+    
 }
 
 export default App;
