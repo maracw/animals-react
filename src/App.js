@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AnimalShow from "./AnimalShow";
-
+import './App.css';
 //not part of App component, but App needs to find this
 
 function getRandomAnimal () {
@@ -23,9 +23,9 @@ function App (){
     });
 
     return (
-        <div>
+        <div className="app">
             <button onClick={handleClick}>Add animal</button>
-            <div>{renderedAnimals}</div>
+            <div className="animal-list">{renderedAnimals}</div>
         </div>
        
         );
